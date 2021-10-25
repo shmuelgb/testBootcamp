@@ -1,2 +1,2 @@
-# testBootcamp
+# Appleseeds_Bootcamp
 Fullstack
