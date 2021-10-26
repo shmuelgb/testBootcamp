@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<h1>Create an Account</h1>
+<body>
+    <form action="process.php"></form>
+    <div>
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" id="email">
+    </div> <br>
+    <div>
+        <label for="password">Password:</label><br>
+        <input type="password" name="password" id="password">
+    </div><br>
+    <div>
+        <label for="age">Age:</label><br>
+        <select name="age" id="age">
+            <option value="default">Select Age</option>
+            <option value="1-10">1-10</option>
+            <option value="11-20">11-20</option>
+            <option value="21-30">21-30</option>
+            <option value="31-40">31-40</option>
+            <option value="41-50">41-50</option>
+            <option value="51-60">51-60</option>
+            <option value="61-70">61-70</option>
+            <option value="71-80">71-80</option>
+            <option value="81-90">81-90</option>
+            <option value="91-100">91-100</option>
+            <option value="100+">100+</option>
+        </select>
+    </div><br>
+    <div>
+        <label for="message">Tell us a little about yourself:</label><br>
+        <textarea name="message" id="message"
+        cols="50" rows="4"></textarea>
+    </div><br>
+    <div>
+        <input type="checkbox" name="agree" value="agree" 
+        id="agree">
+        <label for="agree">I agree to the 
+            <a href="https://www.google.com/">terms of service</a></label>
+    </div><br>
+    <div>
+        <button type="submit">Sign up</button>
+    </div>
+
+</body>
+</html>
