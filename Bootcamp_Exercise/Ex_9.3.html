@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        position: relative;
+        width: 500px;
+        height: 500px;
+        /* border: solid 1px black; */
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+    
+    .box {
+        border: black solid 2px;
+        /* position: absolute; */
+    }
+    #box1{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+    }
+    
+    #box2{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        left: 100px;
+        top: 100px;
+        background: white;
+        z-index: 1;
+    }
+
+    #box3{
+        position: absolute;
+        width: 500px;
+        height: 100px;
+        bottom: 110px;
+        background: white;
+        z-index: 2;
+    }
+
+    #box4{
+        position: absolute;
+        width: 100px;
+        height: 500px;
+        right: 15px;
+        background: white;
+        z-index: 3;
+    }
+
+
+</style>
+<body>
+    <div class="container">
+        <div class="box" id="box1">Box one</div>
+        <div class="box" id="box2">Box two</div>
+        <div class="box" id="box3">Box three</div>
+        <div class="box" id="box4">Box four</div>
+    </div>
+</body>
+</html>
