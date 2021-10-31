@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive | media queries</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    /* widescreen */
+    @media (min-width: 1201px) {
+        p {
+            font-size: 40px;
+        }
+    }
+
+    /* normal */
+    @media (min-width: 769px) and  (max-width: 1200px) {
+        p {
+            font-size: 22px;
+        }
+    }
+
+
+    /* smartphones */
+    @media  (max-width: 500px) {
+        p {
+            font-size: 14px;
+        }
+
+    }
+</style>
+<body>
+    <div class="widescreen">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere voluptatem officia rem eius ducimus. Necessitatibus, quod. Consequatur autem praesentium itaque temporibus id suscipit eaque vel, fugiat sit incidunt quaerat asperiores.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit accusantium cupiditate impedit rem quaerat! Omnis facilis ipsa fugiat maxime, illo optio in recusandae quidem, nemo illum doloribus! Dolor, non illo.</p>
+    </div>
+    
+</body>
+</html>

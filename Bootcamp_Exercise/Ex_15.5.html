@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+    }
+
+    .container {
+        background-color: #feede5;
+        height: 100vh;
+    }
+
+    .navbar {
+        display: flex;
+        height: 10vh;
+        background-color: burlywood;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 1rem;
+    }
+
+    .appleseeds h2{
+        font-size: 1.6rem;
+    }
+    
+    .navbar_menu {
+        display: flex;
+    }
+    
+    .navbar_menu ul {
+        list-style: none;
+    }
+    
+    .navbar_menu ul li {
+        display: inline-block;
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+    
+    @media(max-width: 500px) {
+        .appleseeds h2{
+            font-size: 1.8rem;
+        }
+        .navbar {
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 30vh;
+        }
+        
+        .navbar_menu ul li {
+            text-align: center;
+            display: block;
+            font-size: 1.4rem;
+            border-bottom: 1px brown dotted;
+    }
+    }
+    
+</style>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="appleseeds"><h2>APPLESEEDS</h2></div>
+            <div class="navbar_menu">
+                <ul>
+                    <li>HOME</li>
+                    <li>ABOUT</li>
+                    <li>PORTFOLIO</li>
+                    <li>CONTACT</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
