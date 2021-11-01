@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a[target] {
+        color: red;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+    }
+
+    a[target]:hover::after{
+        content: attr(target);
+        display: inline-block;
+        width: 120px;
+        background-color: yellow;
+        color: #000;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        bottom: 100%;
+        left: 1%;
+    }
+    span[target]:hover::after{
+        content: attr(target);
+        display: inline-block;
+        width: 120px;
+        background-color: yellow;
+        color: #000;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        bottom: 100%;
+        left: 1%;
+    }
+    
+
+</style>
+<body>
+    <div class="text">
+        <p>Lorem ipsum dolor sit amet consectetur
+            <br>
+            <a href="#" target="MY DATA1">nobis</a>
+         elit. Quaerat facilis modi eius, perspiciatis quas quisquam tempore unde culpa ullam illum eum architecto laborum aperiam sunt dolorum sint! Facere, velit quod dolore nulla suscipit laudantium. Distinctio, ex. Molestias nobis eius temporibus, doloribus optio, sint tempore amet odit animi aspernatur libero provident? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat facilis modi eius, perspiciatis quas quisquam tempore unde culpa ullam illum eum architecto laborum 
+         <br>
+        <a href="#" target="MY DATA2">provident</a> 
+        aperiam sunt dolorum sint! Facere, velit quod dolore nulla suscipit laudantium.
+        <a href="#" target="MY DATA3">Molestias</a>
+         Distinctio, ex. Molestias nobis eius temporibus, doloribus optio, sint tempore amet odit animi aspernatur libero provident?</p>
+    </div>
+</body>
+</html>

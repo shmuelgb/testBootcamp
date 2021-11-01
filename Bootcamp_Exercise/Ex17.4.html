@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17.4</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+    }
+
+    .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* border: 1px solid white; */
+        height: 30vh;
+        width: 50vw;
+        background-color: black;
+        border: orange 5px solid;
+    }
+
+    .box h1 {
+        /* display: block; */
+        padding: 5px;
+    }
+
+    .box h1::after {
+        padding: 5px;
+        content: '';
+        /* border-right: orange 2px solid; */
+
+    }
+    .box::before {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: '';
+        background-color: black;
+        height: 20vh;
+        width: 100vw;
+        position: absolute;
+        left: 0;
+    }
+    .box::after {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: 'Cool border';
+        font-size: 1.5rem;
+        background-color: black;
+        height: 100vh;
+        width: 40vw;
+        position: absolute;
+    }
+
+
+</style>
+<body>
+    <div class="box"></div>
+</body>
+</html>
