@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>19.3</title>
+  </head>
+  <style>
+    form input {
+      width: 30px;
+    }
+  </style>
+  <body>
+    <form action="">
+      <input class="input0" value="" type="text" />
+      <input class="input1" value="" type="text" />
+      <input class="input2" value="" type="text" />
+      <input class="input3" value="" type="text" />
+      <input class="input4" value="" type="text" />
+      <input class="input5" value="" type="text" />
+      <input type="submit" />
+    </form>
+  </body>
+  <script>
+    let pasted = "";
+    document.addEventListener("paste", (event) => {
+      event.preventDefault();
+      pasted = event.clipboardData.getData("text");
+      pasted = pasted.split("");
+      if ((pasted.length = 6)) {
+        for (let i = 0; i < pasted.length; i++) {
+          let test = document.querySelector(`.input${i}`);
+          test.setAttribute("maxlength", "1");
+          test.value = pasted[i];
+        }
+      }
+    });
+    let inputs = document.querySelectorAll("form input");
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener("keyup", (event) => {
+        inputs[i + 1].focus();
+      });
+    }
+  </script>
+</html>
