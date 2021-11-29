@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21.3</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .submit {
+      display: block;
+      margin: 0 auto;
+    }
+    h4 {
+      color: red;
+    }
+  </style>
+  <body>
+    <h2>Why are you interested in this position?</h2>
+    <form action="">
+      <textarea class="text" name="Text1" cols="40" rows="10"></textarea>
+      <input class="submit" type="submit" value="Click Here" />
+      <h4></h4>
+    </form>
+  </body>
+  <script>
+    let textEl = document.querySelector(".text");
+    let submitEl = document.querySelector(".submit");
+    let h4El = document.querySelector("h4");
+
+    submitEl.addEventListener("click", (event) => {
+      if (textEl.value.length < 100) {
+        event.preventDefault();
+        h4El.innerText = "Please enter at least 100 characters";
+      }
+    });
+  </script>
+</html>
