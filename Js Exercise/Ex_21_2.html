@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21.2</title>
+</head>
+<style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+</style>
+<body>
+    <h1>change my size</h1>
+    <button class="btn-plus">+</but class="">
+    <button class="btn-minus">-</button>
+</body>
+<script>
+    let fontSize = '24';
+    let h1El = document.querySelector('h1');
+    let btnPlusEl = document.querySelector('.btn-plus');
+    let btnMinusEl = document.querySelector('.btn-minus');
+    h1El.style.fontSize = `${fontSize}px`;
+
+    btnPlusEl.addEventListener("click", (event) => {
+      if(parseInt(fontSize) < 99){
+      fontSize = parseInt(fontSize)+2;
+      fontSize = fontSize.toString();
+      h1El.style.fontSize = `${fontSize}px`;
+      }
+      console.log(fontSize);
+    });
+    btnMinusEl.addEventListener("click", (event) => {
+        if(parseInt(fontSize) > 7){
+            fontSize = parseInt(fontSize)-2;
+            fontSize = fontSize.toString();
+            h1El.style.fontSize = `${fontSize}px`;
+        }
+        console.log(fontSize);
+    });
+</script>
+</html>
