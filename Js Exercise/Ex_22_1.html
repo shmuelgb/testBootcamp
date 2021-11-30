@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>22.1</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .submit {
+      display: block;
+      margin: 0 auto;
+      margin-top: 5px;
+    }
+    .conform {
+      text-align: center;
+      margin-top: 5px;
+      padding: 10px;
+      border: 1px solid black;
+    }
+    .conform ul {
+      list-style: none;
+    }
+    .display-none {
+      display: none;
+    }
+  </style>
+  <body>
+    <form class="info-form" action="">
+      <div class="form-content">
+        <h2>Hello! Please enter your name, age and Email bellow:</h2>
+        <input class="name" name="name" type="text" placeholder="name" />
+        <input class="age" name="age" type="text" placeholder="age" />
+        <input class="email" name="email" type="email" placeholder="Email" />
+        <input class="submit" type="submit" />
+      </div>
+      <div class="conform display-none">
+        <h3>Please conform your info:</h3>
+        <ul>
+          <li class="name-info">Your Name is:</li>
+          <li class="age-info">Your Age is:</li>
+          <li class="email-info">Your Email is:</li>
+        </ul>
+        <input class="btn-cnform" type="submit" value="Conform and Submit" />
+        <button class="btn-change">Let me change my info</button>
+      </div>
+    </form>
+  </body>
+  <script>
+    const name = document.querySelector(".name");
+    const age = document.querySelector(".age");
+    const email = document.querySelector(".email");
+    const btnSubmit = document.querySelector(".submit");
+    const formData = {};
+
+    const conform = document.querySelector(".conform");
+    const nameLi = document.querySelector(".name-info");
+    const ageLi = document.querySelector(".age-info");
+    const emailLi = document.querySelector(".email-info");
+
+    const btnChange = document.querySelector(".btn-change");
+
+    const formContent = document.querySelector(".form-content");
+    const conformDiv = document.querySelector(".conform");
+
+    for (const input of [name, age, email]) {
+      input.addEventListener("change", (event) => {
+        formData[event.target.name] = event.target.value;
+        console.log(formData);
+      });
+    }
+
+    btnSubmit.addEventListener("click", (event) => {
+      event.preventDefault();
+      nameLi.innerText += ` ${formData["name"]}`;
+      ageLi.innerText += ` ${formData["age"]}`;
+      emailLi.innerText += ` ${formData["email"]}`;
+      formContent.classList.toggle("display-none");
+      conformDiv.classList.toggle("display-none");
+    });
+
+    btnChange.addEventListener("click", (event) => {
+      formContent.classList.toggle("display-none");
+      conformDiv.classList.toggle("display-none");
+      event.preventDefault();
+    });
+  </script>
+</html>
