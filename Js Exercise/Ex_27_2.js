@@ -11,15 +11,7 @@ function makeAllCaps(wordsArr) {
 }
 
 function sortWords(wordsArr) {
-  wordsArr.sort(function (a, b) {
-    if (a < b) {
-      return -1;
-    }
-    if (a > b) {
-      return 1;
-    }
-    return 0;
-  });
+  wordsArr.sort();
   return wordsArr;
 }
 
@@ -38,7 +30,6 @@ function promise(fn, arr) {
 
 promise(makeAllCaps, strArr)
   .then((resolve) => {
-    console.log(resolve);
     return promise(sortWords, resolve);
   })
   .then((resolve) => {
@@ -47,3 +38,15 @@ promise(makeAllCaps, strArr)
   .catch((reject) => {
     console.log(reject);
   });
+
+promise(sortWords, strArr)
+  .then((resolve) => {
+    return promise(makeAllCaps, resolve);
+  })
+  .then((resolve) => {
+    console.log(resolve);
+  })
+  .catch((reject) => {
+    console.log(reject);
+  });
+console.log("written last, logs first");
