@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>28.1</title>
+  </head>
+  <body>
+    <button>Fetch</button>
+    <div class="text"></div>
+  </body>
+  <script>
+    const btn = document.querySelector("button");
+    const text = document.querySelector(".text");
+    const jokeH2 = document.createElement("h2");
+    const joke = document.createElement("p");
+    btn.addEventListener("click", getJokes2);
+
+    // function getJokes() {
+    //   fetch("https://api.jokes.one/jod")
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       const jokeH2 = document.createElement("h2");
+    //       jokeH2.innerText = data.contents.jokes[0].joke.title;
+    //       const joke = document.createElement("p");
+    //       joke.innerText = data.contents.jokes[0].joke.text;
+    //       text.appendChild(jokeH2);
+    //       text.appendChild(joke);
+    //     })
+    //     .catch((rej) => console.log("error"));
+    // }
+    async function getJokes2() {
+      try {
+        const request = await fetch("https://api.jokes.one/jod");
+        const data = await request.json();
+        jokeH2.innerText = data.contents.jokes[0].joke.title;
+        joke.innerText = data.contents.jokes[0].joke.text;
+        text.appendChild(jokeH2);
+        text.appendChild(joke);
+      } catch {
+        console.log("error");
+        jokeH2.innerText = "Error 404";
+        text.appendChild(jokeH2);
+      }
+    }
+  </script>
+</html>
