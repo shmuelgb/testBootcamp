@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>31.1</title>
+  </head>
+  <style>
+    .table {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(10, 1fr);
+    }
+    .table div {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: lightgreen;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid black;
+    }
+  </style>
+  <body></body>
+  <script>
+    function Person(person, planet) {
+      this.name = person.name;
+      this.height = person.height;
+      this.hairColor = person.hair_color;
+      this.origin = planet.name;
+      this.planetPopulation = planet.population;
+    }
+    const peopleArr = [];
+    async function getPeople() {
+      const peopleRes = await fetch("https://swapi.dev/api/people/");
+      let people = await peopleRes.json();
+      people = people.results;
+      for (let i = 0; i < people.length; i++) {
+        const originRes = await fetch(people[i].homeworld);
+        const origin = await originRes.json();
+        peopleArr.push(new Person(people[i], origin));
+      }
+      displayData(peopleArr);
+      console.log(peopleArr);
+    }
+
+    function displayData(peopleArr) {
+      const tableEl = document.createElement("div");
+      tableEl.classList.add("table");
+      document.querySelector("body").appendChild(tableEl);
+
+      peopleArr.forEach((person) => {
+        const nameTab = document.createElement("div");
+        nameTab.innerHTML = person.name;
+        tableEl.appendChild(nameTab);
+
+        const heightTab = document.createElement("div");
+        heightTab.innerHTML = person.height;
+        tableEl.appendChild(heightTab);
+
+        const hairColorTab = document.createElement("div");
+        hairColorTab.innerHTML = person.hairColor;
+        tableEl.appendChild(hairColorTab);
+
+        const originTab = document.createElement("div");
+        originTab.innerHTML = person.origin;
+        tableEl.appendChild(originTab);
+
+        const planetPopulationTab = document.createElement("div");
+        planetPopulationTab.innerHTML = person.planetPopulation;
+        tableEl.appendChild(planetPopulationTab);
+      });
+    }
+    getPeople();
+  </script>
+</html>
