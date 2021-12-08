@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>30.2</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    header {
+      height: 40px;
+      background-color: rgb(68, 34, 34);
+      display: flex;
+      justify-content: center;
+      padding: 7px;
+    }
+    header input {
+      width: 25%;
+      border-radius: 5px;
+      border: none;
+      margin: 0 5px;
+      padding: 5px;
+    }
+    header button {
+      border-radius: 5px;
+      border: none;
+      background-color: rgb(148, 78, 78);
+      width: 50px;
+      color: white;
+      cursor: pointer;
+    }
+    header button:hover {
+      opacity: 0.8;
+    }
+    header p {
+      color: red;
+    }
+    .content {
+      display: flex;
+      padding: 20px 100px;
+    }
+    .poster {
+      height: 500px;
+      width: 400px;
+    }
+    .content__details {
+      margin-left: 20px;
+      padding-top: 20px;
+    }
+    .content__details ul {
+      list-style: none;
+    }
+    .content__details ul li {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    .content__details ul li:nth-child(3) {
+      font-size: 16px;
+    }
+  </style>
+  <body>
+    <header>
+      <input type="text" />
+      <button>Search</button>
+      <p></p>
+    </header>
+    <div class="content">
+      <div class="poster-container"></div>
+      <div class="content__details">
+        <h2></h2>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    //variables
+    const inputEl = document.querySelector("header input");
+    const btnEl = document.querySelector("header button");
+    const contentEl = document.querySelector(".content");
+    const h2El = document.querySelector(".content h2");
+    const posterCon = document.querySelector(".poster-container");
+    const errorMsg = document.querySelector("header p");
+    const apiKey = "&apikey=8279ac87";
+
+    //events
+    btnEl.addEventListener("click", search);
+    inputEl.addEventListener("keydown", (e) => {
+      if (e.code === "Enter") search();
+    });
+
+    //functions
+    function search() {
+      const query = inputEl.value.replace(/ /g, "_");
+      getData(query);
+    }
+
+    async function getData(query) {
+      try {
+        const response = await fetch(
+          `https://www.omdbapi.com/?t=${query}${apiKey}`
+        );
+        const movieData = await response.json();
+        if (movieData.Response === "False") {
+          displayErr(movieData.Error);
+        } else {
+          displayData(movieData);
+        }
+      } catch (error) {
+        displayErr(error);
+      }
+    }
+    function displayData(movieData) {
+      posterCon.innerHTML = "";
+      const posterEl = document.createElement("figure");
+      posterEl.classList.add("poster");
+      posterEl.style.background = `url(${movieData.Poster})no-repeat center center/cover`;
+      posterCon.appendChild(posterEl);
+
+      document.querySelector(".content__details h2").innerText =
+        movieData.Title;
+
+      const liEl = document.querySelectorAll(".content__details ul li");
+      liEl[0].innerText = `Genre: ${movieData.Genre}`;
+      liEl[1].innerText = `Year: ${movieData.Year}`;
+      liEl[2].innerText = `Plot: ${movieData.Plot}`;
+      liEl[3].innerText = `Director: ${movieData.Director}`;
+      liEl[4].innerText = `Actors: ${movieData.Actors}`;
+      liEl[5].innerText = `Imdb rating: ${movieData.Ratings[0].Value}`;
+      liEl[6].innerText = `Rotten Tomatoes rating: ${movieData.Ratings[1].Value}`;
+      liEl[7].innerText = `Metacritic rating: ${movieData.Ratings[2].Value}`;
+      console.log(movieData.Ratings);
+    }
+    function displayErr(error) {
+      errorMsg.innerText = error;
+    }
+  </script>
+</html>
