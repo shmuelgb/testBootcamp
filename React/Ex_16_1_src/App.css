@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+}
+
+body {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+header {
+  height: 50px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-around;
+}
