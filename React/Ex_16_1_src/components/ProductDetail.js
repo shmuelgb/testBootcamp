@@ -6,7 +6,7 @@ export default function ProductDetail(props) {
   const store = Store();
   let product = null;
   store.forEach((item) => {
-    if (item.id === parseInt(props.match.params.id)) {
+    if (item.id == parseInt(props.match.params.id)) {
       product = item;
     }
   });
