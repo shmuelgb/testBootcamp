@@ -11,8 +11,15 @@ const scrape = async () => {
     console.log(x[0].attributes[1].value);
     return x.map((a) => a.attributes[1].value);
   });
-  // const text = await page.evaluate(() => {
-  // });
+
+  const photos = await page.$$eval("img", (imgs) => {
+    return imgs.map((img) => img.src);
+  });
+
+  for (const photo of photos) {
+    const imagePage = await page.goto(photo);
+    await fs.writeFile(photo.split("/").pop(), await imagePage.buffer());
+  }
 
   await fs.writeFile("test.txt", text.toString());
 
