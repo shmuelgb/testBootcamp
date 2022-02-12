@@ -157,4 +157,71 @@ function miniMaxSum(arr) {
 //   };
 //   return requrtion();
 // };
-console.log(reverseStr("hello"));
+// console.log(reverseStr("hello"));
+
+//! removeDuplicates
+// var removeDuplicates = function (nums) {
+//   // let lastUnique = nums[0];
+//   let pointer = 1;
+//   for (let i = 1; i < nums.length; i++) {
+//     if (nums[i] !== nums[i - 1]) {
+//       nums[pointer] = nums[i];
+//       pointer++;
+//     }
+//   }
+//   console.log({ nums });
+//   return pointer;
+// };
+// //! remove-element
+// var removeElement = function (nums, val) {
+//   let pointer = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] !== val) {
+//       nums[pointer] = nums[i];
+//       pointer++;
+//     }
+//   }
+//   console.log(nums);
+//   return pointer;
+// };
+// const nums = [1, 1, 2, 2, 4, 4, 4, 5];
+// console.log(removeElement(nums, 2));
+
+//! 28. Implement strStr()
+// var strStr = function (haystack, needle) {
+//   return haystack.indexOf(needle);
+// };
+// var strStr = function (haystack, needle) {
+//   let h = haystack.length - 1;
+//   let n = needle.length - 1;
+//   if (!needle) return 0;
+//   for (let i = 0; i <= h - n; i++) {
+//     console.log({ i, haystack: haystack[i] });
+//     if (haystack[i] === needle[0]) {
+//       console.log("!");
+//       for (let j = 1; j <= n; j++) {
+//         console.log({ i, j, haystack: haystack[i + j], needle: needle[j] });
+//         if (haystack[i + j] !== needle[j]) console.log("out");
+//       }
+//       console.log({ ace: "!!!" });
+//       return i;
+//     }
+//   }
+//   return -1;
+// };
+// console.log(strStr("mississippi", "p"));
+
+//! Maximum Subarray
+var maxSubArray = function (nums) {
+  let curSum = 0;
+  let subSum = nums[0];
+  for (let i = 0; i < nums.length; i++) {
+    if (curSum < 0) curSum = 0;
+    curSum += nums[i];
+    subSum = Math.max(subSum, curSum);
+    console.log({ nums: nums[i], subSum, curSum });
+  }
+  return subSum;
+};
+const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+console.log(maxSubArray(arr));
