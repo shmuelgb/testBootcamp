@@ -211,17 +211,26 @@ function miniMaxSum(arr) {
 // };
 // console.log(strStr("mississippi", "p"));
 
-//! Maximum Subarray
-var maxSubArray = function (nums) {
-  let curSum = 0;
-  let subSum = nums[0];
-  for (let i = 0; i < nums.length; i++) {
-    if (curSum < 0) curSum = 0;
-    curSum += nums[i];
-    subSum = Math.max(subSum, curSum);
-    console.log({ nums: nums[i], subSum, curSum });
-  }
-  return subSum;
-};
-const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-console.log(maxSubArray(arr));
+// //! Maximum Subarray
+// var maxSubArray = function (nums) {
+//   let curSum = 0;
+//   let subSum = nums[0];
+//   for (let i = 0; i < nums.length; i++) {
+//     if (curSum < 0) curSum = 0;
+//     curSum += nums[i];
+//     subSum = Math.max(subSum, curSum);
+//     console.log({ nums: nums[i], subSum, curSum });
+//   }
+//   return subSum;
+// };
+// const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+// console.log(maxSubArray(arr));
+
+//! Length of Last Word
+// var lengthOfLastWord = function (s) {
+//   s = s.trim();
+//   let arr = s.split(" ");
+//   console.log({ arr, s });
+//   return arr[[arr.length - 1]].length;
+
+// console.log(lengthOfLastWord("hello world"));
