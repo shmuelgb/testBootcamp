@@ -234,10 +234,33 @@ function miniMaxSum(arr) {
 //   return arr[[arr.length - 1]].length;
 
 // console.log(lengthOfLastWord("hello world"));
-//!
-var plusOne = function (digits) {
-  digits = parseInt(digits.join(""));
-  digits++;
-  return Array.from(String(digits), Number);
-};
-console.log(plusOne([6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3]));
+// //!
+// var plusOne = function (digits) {
+//   digits = parseInt(digits.join(""));
+//   console.log({ digits });
+//   digits++;
+//   return Array.from(String(digits), Number);
+// };
+// var plusOne = function (digits) {
+//   for (let i = digits.length - 1; i >= 0; i--) {
+//     if (digits[i] !== 9) {
+//       digits[i]++;
+//       return digits;
+//     } else {
+//       digits[i] = 0;
+//     }
+//   }
+//   digits.unshift(1);
+//   return digits;
+// };
+// console.log(plusOne([1, 2, 3]));
+
+const arr = [2, 4, 1];
+const n = 3;
+const arrCopy = Array(n + 1);
+for (let i = 0; i < arr.length; i++) {
+  arrCopy[arr[i] - 1] = arr[i];
+}
+for (let i = 0; i < arrCopy.length; i++) {
+  if (!arrCopy[i]) return i + 1;
+}
