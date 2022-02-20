@@ -255,12 +255,12 @@ function miniMaxSum(arr) {
 // };
 // console.log(plusOne([1, 2, 3]));
 
-const arr = [2, 4, 1];
-const n = 3;
-const arrCopy = Array(n + 1);
-for (let i = 0; i < arr.length; i++) {
-  arrCopy[arr[i] - 1] = arr[i];
-}
-for (let i = 0; i < arrCopy.length; i++) {
-  if (!arrCopy[i]) return i + 1;
-}
+// const arr = [2, 4, 1];
+// const n = 3;
+// const arrCopy = Array(n + 1);
+// for (let i = 0; i < arr.length; i++) {
+//   arrCopy[arr[i] - 1] = arr[i];
+// }
+// for (let i = 0; i < arrCopy.length; i++) {
+//   if (!arrCopy[i]) return i + 1;
+// }
